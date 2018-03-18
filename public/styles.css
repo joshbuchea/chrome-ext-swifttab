@@ -1,0 +1,294 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding-top: 56px;
+  background: #f1f1f1;
+  /*-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;*/
+  font-family: Roboto, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #212121;
+
+  /*
+    preventing scroll on the body removes the "bounce" effect
+    which matches the other Chrome pages (i.e. bookmarks, downloads,
+    history, etc.
+  */
+  overflow: hidden;
+}
+
+::selection {
+  /*color: inherit;*/
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #424242;
+  /*transition: all .25s ease-out;*/
+}
+
+.app {
+  min-width: 100%;
+  height: 100%;
+}
+
+/* Message displayed when no bookmarks found during search OR initial load */
+.no-bookmarks {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: #6e6e6e;
+}
+
+.fadein {
+  animation: fadein 3s;
+  /* animation: 2s linear 1s fadein; */
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bookmarks {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/******************************************************************************
+ * Tile
+/*****************************************************************************/
+
+/* px works better for different screen sizes */
+
+.tile {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+  /* width: 230px !important; */
+
+  /* animations are handled on the js side with masonry now */
+  /* transition: all 0.3s cubic-bezier(.25, .8, .25, 1); */
+}
+
+/* Adjust tile width based on viewport width */
+@media screen and (min-width: 450px) {
+  .tile {
+    width: calc(1/2 * 100%);
+  }
+}
+@media screen and (min-width: 675px) {
+  .tile {
+    width: calc(1/3 * 100%);
+  }
+}
+@media screen and (min-width: 900px) {
+  .tile {
+    width: calc(1/4 * 100%);
+  }
+}
+@media screen and (min-width: 1175px) {
+  .tile {
+    width: calc(1/5 * 100%);
+  }
+}
+@media screen and (min-width: 1400px) {
+  .tile {
+    width: calc(1/6 * 100%);
+  }
+}
+@media screen and (min-width: 1625px) {
+  .tile {
+    width: calc(1/7 * 100%);
+  }
+}
+@media screen and (min-width: 1850px) {
+  .tile {
+    width: calc(1/8 * 100%);
+  }
+}
+
+/******************************************************************************
+ * Bookmark List
+/*****************************************************************************/
+
+.bookmark-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.bookmark-list li {
+  padding: 1px 0;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  /* truncate text */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookmark-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.bookmark-list li a {
+  padding: 0.25em 0 0.15em;
+  padding-left: 24px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  font-weight: 400 !important;
+}
+
+/******************************************************************************
+ * MDC Overrides
+/*****************************************************************************/
+
+/* NOTE: I threw a bunch of !important declarations in here to avoid fighting with specificity and to just get stuff working. If anyone wants to clean things up, that would be awesome.  */
+
+/*
+ * Layout
+ */
+.mdc-layout-grid {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 16px !important;
+}
+
+/*
+ * Toolbar
+ */
+.mdc-toolbar {
+  background-color: #376ad3 !important;
+  transition: box-shadow 0.5s;
+}
+
+.mdc-toolbar[data-shadow='false'] {
+  box-shadow: none;
+}
+
+.mdc-toolbar__row {
+  min-height: 56px !important;
+  max-height: 56px !important;
+}
+
+.mdc-toolbar__section--align-end {
+  padding-right: 10px;
+}
+
+.mdc-toolbar__title {
+  font-size: 16px !important;
+  -moz-osx-font-smoothing: auto !important;
+  -webkit-font-smoothing: auto !important;
+}
+
+.mdc-toolbar__icon {
+  padding: 0 12px !important;
+}
+
+.mdc-button.mdc-ripple-upgraded {
+  --mdc-ripple-fg-opacity: 0.05 !important;
+  color: #fff !important;
+}
+
+.mdc-button.mdc-ripple-upgraded--foreground-activation:before,
+.mdc-button.mdc-ripple-upgraded--foreground-activation:after {
+  background-color: #fff !important;
+  opacity: 0.05 !important;
+}
+
+/*
+ * Text Field
+ */
+.mdc-text-field {
+  margin-bottom: 0px !important;
+}
+
+.mdc-text-field--box {
+  width: 100%;
+  height: 40px !important;
+  border-radius: 2px !important;
+}
+
+.mdc-text-field__input {
+  padding: 21px 15px 19px 48px !important;
+  border-bottom: none !important;
+  letter-spacing: normal !important;
+}
+.mdc-text-field__input::placeholder {
+  font-size: 13px !important;
+  color: #bfcbe4 !important;
+}
+
+.mdc-text-field__icon,
+.mdc-text-field__icon {
+  bottom: 8px !important;
+  font-size: 20px !important;
+  color: #bfcbe4 !important;
+}
+
+/* focused text field icon */
+.mdc-text-field--focused .mdc-text-field__icon {
+  color: #fff !important;
+}
+
+/*
+ * Button
+ */
+.mdc-button {
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 8px !important;
+  min-width: 0px !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 24px !important;
+  border-radius: 50% !important;
+}
+
+/*
+ * Card
+ */
+.mdc-card {
+  background-color: #fff !important;
+}
+.mdc-card:hover {
+  /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+
+.mdc-card .mdc-card__primary h1 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}

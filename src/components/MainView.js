@@ -1,31 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+// import PropTypes from 'prop-types';
 import AppToolbar from './AppToolbar';
 import BookmarksView from './BookmarksView';
 
-class MainView extends React.Component {
-  static propTypes = {
-    bookmarks: PropTypes.array,
+function MainView({ bookmarks = [], folder = '_Swift' }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = event =>
+    setSearchQuery(event.target.value.toLowerCase());
+
+  const handleScrollChange = event => {
+    const isScrolledCurrent = event.target.scrollTop > 0 ? true : false;
+    isScrolledCurrent !== isScrolled && setIsScrolled(isScrolledCurrent);
   };
 
-  static defaultProps = {
-    bookmarks: [],
-  };
-
-  state = {
-    isScrolled: false,
-    search: '',
-  };
-
-  handleSearchChange = e =>
-    this.setState({ search: e.target.value.toLowerCase() });
-
-  handleScrollChange = e => {
-    const isScrolled = e.target.scrollTop > 0 ? true : false;
-    isScrolled !== this.state.isScrolled && this.setState({ isScrolled });
-  };
-
-  filterBookmarks(bookmarks, filter) {
+  const filterBookmarks = (bookmarks, filter) => {
     console.log('filter: ', filter);
 
     // Clone bookmarks
@@ -50,41 +40,39 @@ class MainView extends React.Component {
     return bookmarksFiltered;
   }
 
-  render() {
-    const bookmarksFiltered = this.filterBookmarks(
-      this.props.bookmarks,
-      this.state.search
-    );
+  const bookmarksFiltered = filterBookmarks(
+    bookmarks,
+    searchQuery,
+  );
 
-    const msg = this.state.search ? (
-      <div class="no-bookmarks">No search results found</div>
-    ) : (
-      <div class="no-bookmarks fadein">
-        Bookmarks in <strong>Bookmarks Bar</strong> or{' '}
-        <strong>{this.props.folder}</strong> appear here
-      </div>
-    );
+  const msg = searchQuery ? (
+    <div class="no-bookmarks">No search results found</div>
+  ) : (
+    <div class="no-bookmarks fadein">
+      Bookmarks in <strong>Bookmarks Bar</strong> or{" "}
+      <strong>{folder}</strong> appear here
+    </div>
+  );
 
-    const bookmarksView = !bookmarksFiltered.length ? (
-      msg
-    ) : (
-      <BookmarksView
-        handleScrollChange={this.handleScrollChange}
-        data={bookmarksFiltered}
+  const bookmarksView = !bookmarksFiltered.length ? (
+    msg
+  ) : (
+    <BookmarksView
+      handleScrollChange={handleScrollChange}
+      data={bookmarksFiltered}
+    />
+  );
+
+  return (
+    <>
+      <AppToolbar
+        handleSearchChange={handleSearchChange}
+        searchValue={searchQuery}
+        shadow={isScrolled}
       />
-    );
-
-    return (
-      <React.Fragment>
-        <AppToolbar
-          handleSearchChange={this.handleSearchChange}
-          searchValue={this.state.search}
-          shadow={this.state.isScrolled}
-        />
-        {bookmarksView}
-      </React.Fragment>
-    );
-  }
+      {bookmarksView}
+    </>
+  );
 }
 
 export default MainView;

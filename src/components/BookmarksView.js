@@ -2,9 +2,9 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 import {
   Card,
-  CardPrimary,
-  CardSupportingText,
-  CardTitle,
+  CardPrimaryAction,
+  // CardSupportingText,
+  // CardTitle,
   Grid,
   GridCell,
 } from 'rmwc';
@@ -32,10 +32,10 @@ function BookmarksView(props) {
           {bookmarks.map(folder => (
             <div class="tile">
               <Card>
-                <CardPrimary>
-                  <CardTitle class="card-title">{folder.title}</CardTitle>
-                </CardPrimary>
-                <CardSupportingText>
+                <CardPrimaryAction>
+                  <div class="card-title">{folder.title}</div>
+                </CardPrimaryAction>
+                <div>
                   <ul class="bookmark-list">
                     {folder.children
                       .filter(bookmark => bookmark.url)
@@ -53,7 +53,7 @@ function BookmarksView(props) {
                         </li>
                       ))}
                   </ul>
-                </CardSupportingText>
+                </div>
               </Card>
             </div>
           ))}

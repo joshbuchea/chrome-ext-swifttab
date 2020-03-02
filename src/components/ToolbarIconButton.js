@@ -18,10 +18,10 @@ function IconButton(props) {
   );
 }
 
-IconButton.PropTypes = {
-  href: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  title: PropTypes.string,
-};
+// IconButton.PropTypes = {
+//   href: PropTypes.string.isRequired,
+//   icon: PropTypes.string.isRequired,
+//   title: PropTypes.string,
+// };
 
 export default IconButton;

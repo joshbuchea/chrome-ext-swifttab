@@ -280,6 +280,11 @@ a {
 /*
  * Card
  */
+
+.card {
+  background-color: #fff;
+}
+
 .mdc-card {
   background-color: #fff !important;
 }

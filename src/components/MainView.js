@@ -5,10 +5,8 @@ import React, { useEffect, useState } from 'react';
 import AppToolbar from './AppToolbar';
 import BookmarksView from './BookmarksView';
 
-function MainView({ folder = '_Swift' }) {
+function useBookmarksFolder(folder) {
   const [bookmarks, setBookmarks] = useState([]);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     // Add event listeners
@@ -32,7 +30,7 @@ function MainView({ folder = '_Swift' }) {
         chrome.bookmarks.onMoved.removeListener(getBookmarks);
         chrome.bookmarks.onChildrenReordered.removeListener(getBookmarks);
       }
-    }
+    };
   }, []);
 
   const getBookmarks = () => {
@@ -62,6 +60,14 @@ function MainView({ folder = '_Swift' }) {
     console.log('bookmarks folder: ', folder);
     setBookmarks(folder.children || []);
   };
+
+  return bookmarks;
+}
+
+function MainView({ folder = '_Swift' }) {
+  const bookmarks = useBookmarksFolder(folder);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchChange = event =>
     setSearchQuery(event.target.value.toLowerCase());

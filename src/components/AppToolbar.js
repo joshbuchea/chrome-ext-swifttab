@@ -10,35 +10,35 @@ function AppToolbar(props) {
 
       <div>
         <input
-          value={searchValue}
-          onInput={handleSearchChange}
-          type="search"
-          placeholder="Search"
           autocomplete="off"
           autofocus="autofocus"
+          onInput={handleSearchChange}
+          placeholder="Search"
           // style={{ backgroundColor: "#2850A7", color: "#fff" }}
+          type="search"
+          value={searchValue}
         />
       </div>
 
       <div>
         <ToolbarIconButton
-          title="Bookmarks"
           icon="star"
+          title="Bookmarks"
           url="chrome://bookmarks/"
         />
         <ToolbarIconButton
-          title="Tabs"
           icon="tab"
+          title="Tabs"
           url="chrome://history/syncedTabs"
         />
         <ToolbarIconButton
-          title="History"
           icon="history"
+          title="History"
           url="chrome://history"
         />
         <ToolbarIconButton
-          title="Downloads"
           icon="file_download"
+          title="Downloads"
           url="chrome://downloads/"
         />
       </div>

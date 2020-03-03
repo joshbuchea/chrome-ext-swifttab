@@ -120,8 +120,8 @@ function MainView({ folder = '_Swift' }) {
     msg
   ) : (
     <BookmarksView
-      handleScrollChange={handleScrollChange}
       data={bookmarksFiltered}
+      handleScrollChange={handleScrollChange}
     />
   );
 

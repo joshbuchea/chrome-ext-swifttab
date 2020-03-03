@@ -34,10 +34,10 @@ function AppToolbar(props) {
         </ToolbarSection>
 
         <ToolbarSection alignEnd>
-          <ToolbarIconButton title="Bookmarks" href="chrome://bookmarks/" icon="star" />
-          <ToolbarIconButton title="Tabs" href="chrome://history/syncedTabs" icon="tab" />
-          <ToolbarIconButton title="History" href="chrome://history" icon="history" />
-          <ToolbarIconButton title="Downloads" href="chrome://downloads/" icon="file_download" />
+          <ToolbarIconButton title="Bookmarks" url="chrome://bookmarks/" icon="star" />
+          <ToolbarIconButton title="Tabs" url="chrome://history/syncedTabs" icon="tab" />
+          <ToolbarIconButton title="History" url="chrome://history" icon="history" />
+          <ToolbarIconButton title="Downloads" url="chrome://downloads/" icon="file_download" />
         </ToolbarSection>
       </ToolbarRow>
     </Toolbar>

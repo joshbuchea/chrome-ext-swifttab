@@ -2,21 +2,14 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-import {
-  Button,
-  ToolbarIcon,
-} from 'rmwc';
 
 function IconButton(props) {
-  const { href, icon, title } = props;
+  const { icon, title, url } = props;
 
   return (
-    <Button
-      title={title}
-      onClick={() => chrome.tabs.update({ url: href })}
-    >
-      <ToolbarIcon use={icon} />
-    </Button>
+    <button title={title} onClick={() => chrome.tabs.update({ url })}>
+      {title} ({icon})
+    </button>
   );
 }
 

@@ -126,14 +126,14 @@ function MainView({ folder = '_Swift' }) {
   );
 
   return (
-    <>
+    <div className="App">
       <AppToolbar
         handleSearchChange={handleSearchChange}
         searchValue={searchQuery}
         shadow={isScrolled}
       />
       {bookmarksView}
-    </>
+    </div>
   );
 }
 

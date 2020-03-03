@@ -1,11 +1,67 @@
-import React, { useState } from 'react';
+/*global chrome*/
+
+import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import AppToolbar from './AppToolbar';
 import BookmarksView from './BookmarksView';
 
-function MainView({ bookmarks = [], folder = '_Swift' }) {
+function MainView({ folder = '_Swift' }) {
+  const [bookmarks, setBookmarks] = useState([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    // Add event listeners
+    if (chrome) {
+      chrome.bookmarks.onCreated.addListener(getBookmarks);
+      chrome.bookmarks.onRemoved.addListener(getBookmarks);
+      chrome.bookmarks.onChanged.addListener(getBookmarks);
+      chrome.bookmarks.onMoved.addListener(getBookmarks);
+      chrome.bookmarks.onChildrenReordered.addListener(getBookmarks);
+    }
+
+    // get bookmarks
+    getBookmarks();
+
+    return function cleanup() {
+      // Remove event listeners
+      if (chrome) {
+        chrome.bookmarks.onCreated.removeListener(getBookmarks);
+        chrome.bookmarks.onRemoved.removeListener(getBookmarks);
+        chrome.bookmarks.onChanged.removeListener(getBookmarks);
+        chrome.bookmarks.onMoved.removeListener(getBookmarks);
+        chrome.bookmarks.onChildrenReordered.removeListener(getBookmarks);
+      }
+    }
+  }, []);
+
+  const getBookmarks = () => {
+    // Search bookmarks for folder
+    chrome.bookmarks.search(
+      {
+        url: null,
+        title: folder
+      },
+      results => {
+        // console.log('bookmarks search results: ', results);
+
+        // If results, parse bookmarks
+        results.length &&
+          chrome.bookmarks.getSubTree(results[0].id, data =>
+            updateBookmarks(data[0])
+          );
+
+        // Fallback to Bookmarks Bar
+        !results.length &&
+          chrome.bookmarks.getSubTree('1', data => updateBookmarks(data[0]));
+      }
+    );
+  };
+
+  const updateBookmarks = folder => {
+    console.log('bookmarks folder: ', folder);
+    setBookmarks(folder.children || []);
+  };
 
   const handleSearchChange = event =>
     setSearchQuery(event.target.value.toLowerCase());

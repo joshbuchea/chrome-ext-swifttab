@@ -28,7 +28,6 @@ Chrome extension that enables a personal new tab page featuring links from your 
 ## To Do
 
 * [ ] Define PropTypes
-* [ ] Replace ToolbarIconButton with if equiv RMWC Component exists
 * [ ] Remove inline styles (AppToolbar, ?)
 * [ ] Refactor (Reconsider component hierarchy?)
 

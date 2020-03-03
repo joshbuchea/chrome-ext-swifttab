@@ -15,11 +15,11 @@ function getImageString(url) {
 }
 
 function BookmarksView(props) {
-  const bookmarks = props.data;
+  const { data: bookmarks, handleScrollChange } = props;
 
   return (
-    <div className="bookmarks-view" onScroll={props.handleScrollChange}>
-      <Masonry className={"bookmarks"} options={masonryOptions}>
+    <div className="bookmarks-view" onScroll={handleScrollChange}>
+      <Masonry className="bookmarks" options={masonryOptions}>
         {bookmarks.map(folder => (
           <div class="tile">
             <div class="card">
@@ -33,7 +33,7 @@ function BookmarksView(props) {
                         href={bookmark.url}
                         title={bookmark.title}
                         style={{
-                          backgroundImage: getImageString(bookmark.url)
+                          backgroundImage: getImageString(bookmark.url),
                         }}
                       >
                         {bookmark.title}

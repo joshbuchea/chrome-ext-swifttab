@@ -10,8 +10,10 @@ import {
 import ToolbarIconButton from './ToolbarIconButton';
 
 function AppToolbar(props) {
+  const { handleSearchChange, searchValue, shadow } = props;
+
   return (
-    <Toolbar fixed data-shadow={props.shadow}>
+    <Toolbar fixed data-shadow={shadow}>
       <ToolbarRow>
         <ToolbarSection alignStart>
           <ToolbarTitle>SwiftTab</ToolbarTitle>
@@ -21,8 +23,8 @@ function AppToolbar(props) {
           <TextField
             box
             withLeadingIcon={<TextFieldIcon use="search" />}
-            value={props.searchValue}
-            onInput={props.handleSearchChange}
+            value={searchValue}
+            onInput={handleSearchChange}
             type="search"
             placeholder="Search"
             autocomplete="off"

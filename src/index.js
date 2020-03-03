@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Bookmarks from './components/Bookmarks';
 import MainView from './components/MainView';
-import 'material-components-web/dist/material-components-web.css';
+// import 'material-components-web/dist/material-components-web.css';
 
 function App() {
   return (

@@ -16,7 +16,7 @@ function AppToolbar(props) {
           placeholder="Search"
           autocomplete="off"
           autofocus="autofocus"
-          style={{ backgroundColor: "#2850A7", color: "#fff" }}
+          // style={{ backgroundColor: "#2850A7", color: "#fff" }}
         />
       </div>
 

@@ -45,6 +45,29 @@ a {
 .app {
   min-width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.app-toolbar {
+  height: 52px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: #d4d4d4;
+}
+
+.bookmarks-view {
+  bottom: 0;
+  height: calc(100% - 52px);
+  overflow-y: auto;
+  position: absolute;
+  top: 52px;
+  width: 100%;
 }
 
 /* Message displayed when no bookmarks found during search OR initial load */

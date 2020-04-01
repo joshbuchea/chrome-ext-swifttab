@@ -5,7 +5,7 @@ function AppToolbar(props) {
   const { handleSearchChange, searchValue, shadow } = props;
 
   return (
-    <div>
+    <div className="app-toolbar">
       <div>SwiftTab</div>
 
       <div>

@@ -6,7 +6,7 @@ function AppToolbar(props) {
 
   return (
     <div className="app-toolbar">
-      <div>SwiftTab</div>
+      <div class="app-title">SwiftTab</div>
 
       <div>
         <input

@@ -1,5 +1,10 @@
 html {
+  box-sizing: border-box;
   min-height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -56,9 +61,14 @@ a {
 
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   background: #d4d4d4;
+  padding: 0 24px;
+}
+
+.app-title {
+  font-weight: bold;
 }
 
 .bookmarks-view {
@@ -108,6 +118,13 @@ a {
 
 .card {
   background-color: #fff;
+  border-radius: 3px;
+  padding: 16px;
+}
+
+.card-title {
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
 /******************************************************************************
@@ -174,7 +191,7 @@ a {
 }
 
 .bookmark-list li {
-  padding: 1px 0;
+  padding: 3px 0;
   background-position: left center;
   background-repeat: no-repeat;
 
@@ -191,9 +208,32 @@ a {
 }
 
 .bookmark-list li a {
-  padding: 0.25em 0 0.15em;
+  /* padding: 0.25em 0 0.15em; */
   padding-left: 24px;
   background-position: left center;
   background-repeat: no-repeat;
   font-weight: 400 !important;
+}
+
+/******************************************************************************
+ * Dark Theme
+/*****************************************************************************/
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #202124;
+    color: #fff;
+  }
+
+  a {
+    color: #dedede;
+  }
+
+  .app-toolbar {
+    background: #292A2D;
+  }
+
+  .card {
+    background-color: #292A2D;
+  }
 }

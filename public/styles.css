@@ -44,7 +44,7 @@ h6 {
 a {
   text-decoration: none;
   color: #424242;
-  /*transition: all .25s ease-out;*/
+  /* transition: all .25s ease-out; */
 }
 
 .app {
@@ -191,15 +191,20 @@ a {
 }
 
 .bookmark-list li {
-  padding: 3px 0;
   background-position: left center;
   background-repeat: no-repeat;
+  border-radius: 3px;
+  padding: 3px 0;
 
   /* truncate text */
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.bookmark-list li:hover {
+  background: rgba(1,1,1,0.7);
+  transition: all 1.5s ease-in;
 }
 
 .bookmark-list li:last-child {
@@ -209,7 +214,7 @@ a {
 
 .bookmark-list li a {
   /* padding: 0.25em 0 0.15em; */
-  padding-left: 24px;
+  padding-left: 2em;
   background-position: left center;
   background-repeat: no-repeat;
   font-weight: 400 !important;

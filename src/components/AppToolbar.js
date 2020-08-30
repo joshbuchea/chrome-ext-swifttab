@@ -26,11 +26,11 @@ function AppToolbar(props) {
           title="Bookmarks"
           url="chrome://bookmarks/"
         />
-        <ToolbarIconButton
+        {/* <ToolbarIconButton
           icon="tab"
           title="Tabs"
           url="chrome://history/syncedTabs"
-        />
+        /> */}
         <ToolbarIconButton
           icon="history"
           title="History"

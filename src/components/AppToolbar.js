@@ -3,6 +3,7 @@ import ToolbarIconButton from './ToolbarIconButton';
 
 function AppToolbar(props) {
   const { handleSearchChange, searchValue } = props;
+  const bookmarksButtonLabel = window.navigator.userAgent.indexOf('Edg') > -1 ? 'Favorites' : 'Bookmarks';
 
   return (
     <div className="app-toolbar">
@@ -23,7 +24,7 @@ function AppToolbar(props) {
       <div>
         <ToolbarIconButton
           icon="star"
-          title="Bookmarks"
+          title={bookmarksButtonLabel}
           url="chrome://bookmarks/"
         />
         {/* <ToolbarIconButton

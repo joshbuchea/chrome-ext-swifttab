@@ -2,7 +2,7 @@ import React from 'react';
 import ToolbarIconButton from './ToolbarIconButton';
 
 function AppToolbar(props) {
-  const { handleSearchChange, searchValue, shadow } = props;
+  const { handleSearchChange, searchValue } = props;
 
   return (
     <div className="app-toolbar">

@@ -24,7 +24,7 @@ function AppToolbar(props) {
       <div>
         <ToolbarIconButton
           icon="star"
-          title={bookmarksButtonLabel}
+          title="Bookmarks"
           url="chrome://bookmarks/"
         />
         {/* <ToolbarIconButton

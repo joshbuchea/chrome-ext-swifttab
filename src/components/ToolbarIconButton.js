@@ -8,7 +8,7 @@ function IconButton(props) {
 
   return (
     <button title={title} onClick={() => chrome.tabs.update({ url })}>
-      {title} ({icon})
+      {title}
     </button>
   );
 }

@@ -21,20 +21,18 @@ function useBookmarksFolder(folder) {
           url: null,
           title: folder,
         },
-        (results) => {
+        results => {
           // console.log('bookmarks search results: ', results);
 
           // If results, parse bookmarks
           results.length &&
-            chrome.bookmarks.getSubTree(results[0].id, (data) =>
+            chrome.bookmarks.getSubTree(results[0].id, data =>
               updateBookmarks(data[0])
             );
 
           // Fallback to Bookmarks Bar
           !results.length &&
-            chrome.bookmarks.getSubTree("1", (data) =>
-              updateBookmarks(data[0])
-            );
+            chrome.bookmarks.getSubTree('1', data => updateBookmarks(data[0]));
         }
       );
     }
@@ -89,11 +87,10 @@ function MainView({ folder = '_Swift' }) {
     const bookmarksFiltered = bookmarks
       .map(folder => {
         folder.children &&
-          (folder.children = folder.children.filter(
-            bookmark =>
-              filter
-                ? bookmark.url && bookmark.title.toLowerCase().includes(filter)
-                : bookmark.url
+          (folder.children = folder.children.filter(bookmark =>
+            filter
+              ? bookmark.url && bookmark.title.toLowerCase().includes(filter)
+              : bookmark.url
           ));
         return folder;
       })
@@ -102,19 +99,16 @@ function MainView({ folder = '_Swift' }) {
     console.log('filtered bookmarks: ', bookmarksFiltered);
 
     return bookmarksFiltered;
-  }
+  };
 
-  const bookmarksFiltered = filterBookmarks(
-    bookmarks,
-    searchQuery,
-  );
+  const bookmarksFiltered = filterBookmarks(bookmarks, searchQuery);
 
   const msg = searchQuery ? (
     <div class="no-bookmarks">No search results found</div>
   ) : (
     <div class="no-bookmarks fadein">
-      Bookmarks in <strong>Bookmarks Bar</strong> or{" "}
-      <strong>{folder}</strong> appear here
+      Bookmarks in <strong>Bookmarks Bar</strong> or <strong>{folder}</strong>{' '}
+      appear here
     </div>
   );
 

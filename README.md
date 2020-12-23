@@ -27,6 +27,10 @@ Chrome extension that enables a personal new tab page featuring links from your 
 
 ## To Do
 
+* [ ] Re-architect
+  * [ ] Remove build step?
+    * I learned that babel standalone won't work inside a chrome extension (new tab)
+  * [ ] Create BookmarksProvider
 * [ ] Define PropTypes
 * [ ] Remove inline styles (AppToolbar, ?)
 * [ ] Refactor (Reconsider component hierarchy?)

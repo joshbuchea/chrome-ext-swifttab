@@ -69,18 +69,48 @@ a {
   padding: 0 24px;
 }
 
+.app-title {
+  font-weight: bold;
+}
+
 .app-toolbar input {
+  background-color: #202123;
   border-radius: 4px;
   border: 1px solid transparent;
+  color: #fff;
   padding: 0.4em 0.8em;
 }
 .app-toolbar input:focus {
   outline: none;
-  border: 1px solid red;
+  border: 1px solid #fff;
+  /* border-color: var(--text-color); */
 }
 
-.app-title {
-  font-weight: bold;
+.app-toolbar button {
+  background-color: var(--color-primary);
+  border-color: transparent;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+  font-size: 1em;
+  /* font-size: 1rem; */
+  /* margin-bottom: 1em; */
+  margin-right: 0.5em;
+  padding: 0.4em 1.2em;
+  transition: all 0.2s ease 0s;
+  transition-property: background-color, border-color, color;
+}
+.app-toolbar button:last-child {
+  margin-right: 0;
+}
+
+.app-toolbar button:hover {
+  background-color: transparent;
+  /* border-color: var(--color-primary); */
+  /* color: var(--color-primary); */
+  color: #ecc27d;
+  cursor: pointer;
 }
 
 .bookmarks-view {

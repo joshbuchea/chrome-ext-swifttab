@@ -3,6 +3,7 @@
   "description": "Chrome extension that enables a personal new tab page featuring links from your Bookmarks Bar",
   "version": "0.2.0",
   "dependencies": {
+    "onchange": "^7.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -15,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch": "onchange -i -k -v 'src/**/*' 'public/**/*' -- yarn build"
   },
   "browserslist": {
     "production": [

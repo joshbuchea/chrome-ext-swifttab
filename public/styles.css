@@ -187,6 +187,8 @@ a {
 }
 
 /* Adjust tile width based on viewport width */
+/* note: min-width values do *not* support using calc and/or var, last I tried
+on 2021-06-26 in Latest Brave Browser (Chromium) */
 @media screen and (min-width: 500px) {
   .tile {
     width: calc(1 / 2 * 100%);

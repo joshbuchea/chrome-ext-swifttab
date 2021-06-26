@@ -187,37 +187,37 @@ a {
 }
 
 /* Adjust tile width based on viewport width */
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 500px) {
   .tile {
     width: calc(1 / 2 * 100%);
   }
 }
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 750px) {
   .tile {
     width: calc(1 / 3 * 100%);
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   .tile {
     width: calc(1 / 4 * 100%);
   }
 }
-@media screen and (min-width: 1175px) {
+@media screen and (min-width: 1250px) {
   .tile {
     width: calc(1 / 5 * 100%);
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1500px) {
   .tile {
     width: calc(1 / 6 * 100%);
   }
 }
-@media screen and (min-width: 1625px) {
+@media screen and (min-width: 1750px) {
   .tile {
     width: calc(1 / 7 * 100%);
   }
 }
-@media screen and (min-width: 1850px) {
+@media screen and (min-width: 2000px) {
   .tile {
     width: calc(1 / 8 * 100%);
   }

@@ -70,7 +70,7 @@ a {
 }
 
 .app-title {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .app-toolbar input {
@@ -78,6 +78,7 @@ a {
   border-radius: 4px;
   border: 1px solid transparent;
   color: #fff;
+  font-size: 15px;
   padding: 0.4em 0.8em;
 }
 .app-toolbar input:focus {

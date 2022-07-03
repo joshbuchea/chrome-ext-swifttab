@@ -25,6 +25,13 @@ Chrome extension that enables a personal new tab page featuring links from your 
   - Press "Load unpacked extension..."
   - Select the `build` folder
 
+### Troubleshooting
+
+#### The new tab page is blank
+
+- Don't forget to install dependencies & build the extension
+- Don't forget to select the `build` folder and not the `public` folder when loading the extension
+
 ## To Do
 
 - [ ] Re-architect

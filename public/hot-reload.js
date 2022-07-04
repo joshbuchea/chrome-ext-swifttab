@@ -1,3 +1,6 @@
+// TODO: add hot-reload.js to background key in manifest.json like below:
+// { "background": { "scripts": ["hot-reload.js"] } }
+
 // https://github.com/xpl/crx-hotreload
 
 // const filesInDirectory = dir =>

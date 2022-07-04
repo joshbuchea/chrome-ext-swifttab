@@ -6,7 +6,6 @@
   "homepage_url": "https://github.com/joshbuchea/chrome-ext-swifttab",
   "author": "Josh Buchea",
   "permissions": ["bookmarks", "chrome://favicon/"],
-  "background": { "scripts": ["hot-reload.js"] },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

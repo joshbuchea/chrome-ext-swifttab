@@ -1,6 +1,6 @@
 {
   "name": "chrome-ext-swifttab",
-  "description": "Chrome extension that enables a personal new tab page featuring links from your Bookmarks Bar",
+  "description": "Chrome extension that enables a personal new tab page featuring your bookmarks",
   "version": "0.2.0",
   "dependencies": {
     "onchange": "^7.1.0",

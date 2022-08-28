@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "SwiftTab",
   "description": "Personal new tab page featuring links from your Bookmarks Bar",
   "version": "0.2.0",
   "homepage_url": "https://github.com/joshbuchea/chrome-ext-swifttab",
   "author": "Josh Buchea",
-  "permissions": ["bookmarks", "chrome://favicon/"],
+  "permissions": ["bookmarks", "favicon"],
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

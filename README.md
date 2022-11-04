@@ -42,6 +42,8 @@ Chrome extension that enables a personal new tab page featuring links from your 
 - [ ] Define PropTypes
 - [ ] Remove inline styles (AppToolbar, ?)
 - [ ] Refactor (Reconsider component hierarchy?)
+- [ ] Add Support for Firefox
+  - `chrome.bookmarks.onChildrenReordered is undefined` error in new tab after installing addon
 
 ## License
 

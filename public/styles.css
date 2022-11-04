@@ -110,7 +110,7 @@ a {
   background-color: transparent;
   /* border-color: var(--color-primary); */
   /* color: var(--color-primary); */
-  color: #ecc27d;
+  /* color: #ecc27d; */
   cursor: pointer;
 }
 
@@ -249,7 +249,7 @@ on 2021-06-26 in Latest Brave Browser (Chromium) */
   text-overflow: ellipsis;
 }
 .bookmark-list li:hover {
-  background: rgba(1, 1, 1, 0.7);
+  /* background: rgba(1, 1, 1, 0.7); */
   transition: all 1.5s ease-in;
 }
 

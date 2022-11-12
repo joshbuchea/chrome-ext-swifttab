@@ -42,6 +42,13 @@ Chrome extension that enables a personal new tab page featuring links from your 
 - [ ] Define PropTypes
 - [ ] Remove inline styles (AppToolbar, ?)
 - [ ] Refactor (Reconsider component hierarchy?)
+- [ ] Update to Manifest v3
+  - [ ] Update `manifest.json`
+    - [ ] Update value of `manifest_version` from `2` to `3`
+    - [ ] Change permissions value from `favicon` to `chrome://favicon`
+  - [ ] Update `BookmarksView.js`
+    - [ ] Add `/*global chrome*/` to top of file (first line)
+    - [ ] Uncomment new favicon url formats in `getImageString`
 - [ ] Add Support for Firefox
   - `chrome.bookmarks.onChildrenReordered is undefined` error in new tab after installing addon
 

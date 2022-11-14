@@ -43,7 +43,9 @@ function useBookmarksFolder(folder) {
       chrome.bookmarks.onRemoved.addListener(getBookmarks);
       chrome.bookmarks.onChanged.addListener(getBookmarks);
       chrome.bookmarks.onMoved.addListener(getBookmarks);
-      chrome.bookmarks.onChildrenReordered.addListener(getBookmarks);
+      if (chrome.bookmarks.onChildrenReordered) {
+        chrome.bookmarks.onChildrenReordered.addListener(getBookmarks);
+      }
     }
 
     // get bookmarks
@@ -56,7 +58,9 @@ function useBookmarksFolder(folder) {
         chrome.bookmarks.onRemoved.removeListener(getBookmarks);
         chrome.bookmarks.onChanged.removeListener(getBookmarks);
         chrome.bookmarks.onMoved.removeListener(getBookmarks);
-        chrome.bookmarks.onChildrenReordered.removeListener(getBookmarks);
+        if (chrome.bookmarks.onChildrenReordered) {
+          chrome.bookmarks.onChildrenReordered.removeListener(getBookmarks);
+        }
       }
     };
   }, [folder]);

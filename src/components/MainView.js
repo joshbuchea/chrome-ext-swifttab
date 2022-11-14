@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import AppToolbar from './AppToolbar';
 import BookmarksView from './BookmarksView';
 
-function useBookmarksFolder(folder) {
+function useBookmarksFolder(folderName) {
   const [bookmarks, setBookmarks] = useState([]);
 
   const updateBookmarks = folder => {
@@ -19,7 +19,7 @@ function useBookmarksFolder(folder) {
       chrome.bookmarks.search(
         {
           url: null,
-          title: folder,
+          title: folderName,
         },
         results => {
           // console.log('bookmarks search results: ', results);
@@ -63,13 +63,13 @@ function useBookmarksFolder(folder) {
         }
       }
     };
-  }, [folder]);
+  }, [folderName]);
 
   return bookmarks;
 }
 
-function MainView({ folder = '_Swift' }) {
-  const bookmarks = useBookmarksFolder(folder);
+function MainView({ folderName = '_Swift' }) {
+  const bookmarks = useBookmarksFolder(folderName);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -111,8 +111,8 @@ function MainView({ folder = '_Swift' }) {
     <div class="no-bookmarks">No search results found</div>
   ) : (
     <div class="no-bookmarks fadein">
-      Bookmarks in <strong>Bookmarks Bar</strong> or <strong>{folder}</strong>{' '}
-      appear here
+      Bookmarks in <strong>Bookmarks Bar</strong> or{' '}
+      <strong>{folderName}</strong> appear here
     </div>
   );
 

@@ -13,7 +13,9 @@ const masonryOptions = {
 function getImageString(url) {
   if (isFirefox) {
     // favicon URL scheme for Firefox
-    return `image-set(url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=16") 1x, url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=32") 2x)`;
+    const urlObj = new URL(url);
+    const origin = urlObj.origin;
+    return `image-set(url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=16") 1x, url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=32") 2x)`;
   }
 
   // chrome-extension://<id>/_favicon/?pageUrl=https://example.com&size=24

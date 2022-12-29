@@ -15,7 +15,7 @@ function getImageString(url) {
     // favicon URL scheme for Firefox
     const urlObj = new URL(url);
     const origin = urlObj.origin;
-    return `image-set(url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=16") 1x, url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=32") 2x)`;
+    return `url("https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=32")`;
   }
 
   // chrome-extension://<id>/_favicon/?pageUrl=https://example.com&size=24

@@ -34,6 +34,7 @@ Chrome extension that enables a personal new tab page featuring links from your 
 
 ## To Do
 
+- [ ] Config new default icon for bookmarks without favicons
 - [ ] Re-architect
   - [ ] Remove build step?
     - I learned that babel standalone won't work inside a chrome extension (new tab)
@@ -51,6 +52,8 @@ Chrome extension that enables a personal new tab page featuring links from your 
     - [ ] Uncomment new favicon url formats in `getImageString`
 - [ ] Add Support for Firefox
   - `chrome.bookmarks.onChildrenReordered is undefined` error in new tab after installing addon
+  - `TypeError: chrome.bookmarks.search(...) is undefined`
+    - ?
 
 ## License
 

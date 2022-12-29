@@ -50,10 +50,7 @@ Chrome extension that enables a personal new tab page featuring links from your 
   - [ ] Update `BookmarksView.js`
     - [ ] Add `/*global chrome*/` to top of file (first line)
     - [ ] Uncomment new favicon url formats in `getImageString`
-- [ ] Add Support for Firefox
-  - `chrome.bookmarks.onChildrenReordered is undefined` error in new tab after installing addon
-  - `TypeError: chrome.bookmarks.search(...) is undefined`
-    - ?
+- [x] Add Support for Firefox
 
 ## License
 

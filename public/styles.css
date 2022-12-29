@@ -263,6 +263,7 @@ on 2021-06-26 in Latest Brave Browser (Chromium) */
   padding-left: 2em;
   background-position: left center;
   background-repeat: no-repeat;
+  background-size: 16px;
   font-weight: 400 !important;
 }
 

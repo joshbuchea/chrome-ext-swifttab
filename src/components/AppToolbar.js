@@ -1,44 +1,56 @@
 import React from 'react';
-import {
-  TextField,
-  TextFieldIcon,
-  Toolbar,
-  ToolbarRow,
-  ToolbarSection,
-  ToolbarTitle,
-} from 'rmwc';
 import ToolbarIconButton from './ToolbarIconButton';
 
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
 function AppToolbar(props) {
+  const { handleSearchChange, searchValue } = props;
+  const bookmarksButtonLabel =
+    window.navigator.userAgent.indexOf('Edg') > -1 ? 'Favorites' : 'Bookmarks';
+
   return (
-    <Toolbar fixed data-shadow={props.shadow}>
-      <ToolbarRow>
-        <ToolbarSection alignStart>
-          <ToolbarTitle>SwiftTab</ToolbarTitle>
-        </ToolbarSection>
+    <div className="app-toolbar">
+      <div class="app-title">SwiftTab</div>
 
-        <ToolbarSection>
-          <TextField
-            box
-            withLeadingIcon={<TextFieldIcon use="search" />}
-            value={props.searchValue}
-            onInput={props.handleSearchChange}
-            type="search"
-            placeholder="Search"
-            autocomplete="off"
-            autofocus="autofocus"
-            style={{ backgroundColor: '#2850A7', color: '#fff' }}
-          />
-        </ToolbarSection>
+      <div>
+        <input
+          autocomplete="off"
+          autofocus="autofocus"
+          onInput={handleSearchChange}
+          placeholder="Search"
+          // style={{ backgroundColor: "#2850A7", color: "#fff" }}
+          type="search"
+          value={searchValue}
+        />
+      </div>
 
-        <ToolbarSection alignEnd>
-          <ToolbarIconButton title="Bookmarks" href="chrome://bookmarks/" icon="star" />
-          <ToolbarIconButton title="Tabs" href="chrome://history/syncedTabs" icon="tab" />
-          <ToolbarIconButton title="History" href="chrome://history" icon="history" />
-          <ToolbarIconButton title="Downloads" href="chrome://downloads/" icon="file_download" />
-        </ToolbarSection>
-      </ToolbarRow>
-    </Toolbar>
+      <div>
+        {!isFirefox && (
+          <>
+            <ToolbarIconButton
+              icon="star"
+              title="Bookmarks"
+              url="chrome://bookmarks/"
+            />
+            {/* <ToolbarIconButton
+              icon="tab"
+              title="Tabs"
+              url="chrome://history/syncedTabs"
+            /> */}
+            <ToolbarIconButton
+              icon="history"
+              title="History"
+              url="chrome://history"
+            />
+            <ToolbarIconButton
+              icon="file_download"
+              title="Downloads"
+              url="chrome://downloads/"
+            />
+          </>
+        )}
+      </div>
+    </div>
   );
 }
 

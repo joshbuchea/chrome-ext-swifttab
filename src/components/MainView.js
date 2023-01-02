@@ -9,7 +9,6 @@ function useBookmarksFolder(folderName) {
   const [bookmarks, setBookmarks] = useState([]);
 
   const updateBookmarks = folder => {
-    console.log('bookmarks folder: ', folder);
     setBookmarks(folder.children || []);
   };
 
@@ -22,8 +21,6 @@ function useBookmarksFolder(folderName) {
           title: folderName,
         },
         results => {
-          // console.log('bookmarks search results: ', results);
-
           // If results, parse bookmarks
           results.length &&
             chrome.bookmarks.getSubTree(results[0].id, data =>
@@ -82,8 +79,6 @@ function MainView({ folderName = '_Swift' }) {
   };
 
   const filterBookmarks = (bookmarks, filter) => {
-    console.log('filter: ', filter);
-
     // Clone bookmarks
     bookmarks = JSON.parse(JSON.stringify(bookmarks));
 
@@ -99,8 +94,6 @@ function MainView({ folderName = '_Swift' }) {
         return folder;
       })
       .filter(folder => folder.children && folder.children.length);
-
-    console.log('filtered bookmarks: ', bookmarksFiltered);
 
     return bookmarksFiltered;
   };

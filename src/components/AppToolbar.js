@@ -1,9 +1,7 @@
 import React from 'react';
 import ToolbarIconButton from './ToolbarIconButton';
 
-// Firefox 1.0+ (tested on Firefox 45 - 53)
-// TODO: replace InstallTrigger, it is deprecated and will be removed in the future
-const isFirefox = typeof InstallTrigger !== 'undefined';
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 function AppToolbar(props) {
   const { handleSearchChange, searchValue } = props;

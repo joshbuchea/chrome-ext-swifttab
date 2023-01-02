@@ -1,8 +1,7 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 
-// Firefox 1.0+ (tested on Firefox 45 - 53)
-const isFirefox = typeof InstallTrigger !== 'undefined';
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 const masonryOptions = {
   // fitWidth: true,

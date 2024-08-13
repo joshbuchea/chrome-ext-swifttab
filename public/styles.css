@@ -114,6 +114,75 @@ a {
   cursor: pointer;
 }
 
+.tabs-view {
+  bottom: 0;
+  height: calc(100% - 52px);
+  overflow-y: auto;
+  padding: 8px;
+  position: absolute;
+  top: 52px;
+  width: 100%;
+}
+
+.tabs-view ul {
+  background-color: #292a2d;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-view ul li {
+  cursor: pointer;
+  /* border-radius: 3px; */
+  /* padding: 4px 16px 4px 24px; */
+  padding: 8px 16px;
+  /* margin-bottom: 4px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.tabs-view ul li:hover {
+  background-color: #1c1d1f;
+}
+
+.tabs-view ul li div:first-child {
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-left: 32px;
+  /* flex: 1; */
+
+  /* truncate text with ellipses */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tabs-view ul li div:last-child {
+  white-space: nowrap;
+}
+
+.tabs-view ul li.pinned {
+  /* background-color: #1c1d1f; */
+  border-left: 1px solid coral;
+}
+
+.tabs-view .tab-action-buttons {
+  visibility: hidden;
+}
+.tabs-view ul li:hover .tab-action-buttons {
+  visibility: visible;
+}
+
+.tabs-view .tab-action-buttons button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
 .bookmarks-view {
   bottom: 0;
   height: calc(100% - 52px);

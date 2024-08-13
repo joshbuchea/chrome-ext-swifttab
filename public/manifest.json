@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "homepage_url": "https://github.com/joshbuchea/chrome-ext-swifttab",
   "author": "Josh Buchea",
-  "permissions": ["bookmarks", "chrome://favicon/"],
+  "permissions": ["bookmarks", "tabs", "menus", "menus.overrideContext"],
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
